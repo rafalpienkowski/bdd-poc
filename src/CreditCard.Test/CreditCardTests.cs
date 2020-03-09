@@ -1,5 +1,3 @@
-
-using Xbehave;
 using FluentAssertions;
 using CreditCard.Test.Framework;
 using System;
@@ -8,8 +6,8 @@ namespace CreditCard.Test
 {
     public class CreditCardTests: BehaveTest
     {
-        [Scenario]
-        public void Cannot_Assing_Limit_For_The_Second_Time(CreditCard creditCard)
+        [Spec]
+        public void Cannot_Assign_Limit_For_The_Second_Time(CreditCard creditCard)
         {
             Given("A card", () => {
                 creditCard = new CreditCard(Guid.NewGuid());
@@ -26,7 +24,7 @@ namespace CreditCard.Test
             });
         }
 
-        [Scenario]
+        [Spec]
         public void Can_Assign_Limit_To_A_Card(CreditCard creditCard)
         {
             Given("A card", () => {
@@ -42,7 +40,7 @@ namespace CreditCard.Test
             });
         }
 
-        [Scenario]
+        [Spec]
         public void Cannot_Withdraw_When_Not_Enough_Money(CreditCard creditCard, Action withdrawAction)
         {
             Given("A card with a limit of 150", () => {
@@ -59,7 +57,7 @@ namespace CreditCard.Test
             });
         }
 
-        [Scenario]
+        [Spec]
         public void Can_Withdraw_From_A_Card(CreditCard creditCard)
         {
             Given("a credit card with 100 limit", () => {
@@ -76,7 +74,7 @@ namespace CreditCard.Test
             });
         }
 
-        [Scenario]
+        [Spec]
         public void Can_Repay_A_Card(CreditCard creditCard)
         {
             Given("a credit card with 100 limit", () => {
